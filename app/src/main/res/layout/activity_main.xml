@@ -30,7 +30,7 @@
         android:inputType="textPassword" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/backButton"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
@@ -42,12 +42,13 @@
         android:textSize="20sp" />
 
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Forgotten password?"
-        android:textColor="@color/blue" />
+        android:textColor="@color/blue"
+        android:id="@+id/btn_forgetPassword"/>
 
 
     <androidx.appcompat.widget.AppCompatButton
