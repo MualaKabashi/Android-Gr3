@@ -1,6 +1,7 @@
 package com.cacttus.androidgr3
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
@@ -38,10 +39,15 @@ class MainActivity : ComponentActivity() {
 
 
         login.setOnClickListener {
-            if (username.text.toString().isBlank() || password.text.toString().isBlank()) {
+            if (username.text.toString().isBlank() || password.text.toString()
+                    .isBlank() && !validatePassword(password.text.toString())
+            ) {
                 Toast.makeText(this, "Please enter your credentials!", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, "Logged in successfully!", Toast.LENGTH_SHORT).show()
+                var intent = Intent(this, ProfileActivity::class.java)
+                intent.putExtra("username", username.text.toString())
+                startActivity(intent)
             }
         }
 
@@ -92,5 +98,9 @@ class MainActivity : ComponentActivity() {
         alertDialog.setCancelable(false)
         alertDialog.show()
     }
+
+
+    fun validatePassword(input: String) = input.length >= 8 && input[0].isUpperCase()
+
 }
 
