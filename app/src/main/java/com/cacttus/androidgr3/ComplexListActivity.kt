@@ -1,5 +1,6 @@
 package com.cacttus.androidgr3
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ListView
 import android.widget.Toast
@@ -34,6 +35,11 @@ class ComplexListActivity : ComponentActivity() {
         complexList.setOnItemClickListener { adapterView, view, position, l ->
             Toast.makeText(this, "${singerList[position].name} is clicked", Toast.LENGTH_SHORT)
                 .show()
+
+            var intent = Intent(this, DetailsActivity::class.java)
+            intent.putExtra("image", singerList[position].image)
+            intent.putExtra("name", singerList[position].name)
+            startActivity(intent)
         }
     }
 }
